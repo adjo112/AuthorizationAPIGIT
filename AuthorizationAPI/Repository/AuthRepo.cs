@@ -25,25 +25,7 @@ namespace AuthorizationAPI.Repository
             _context = context;
         }
 
-        // here the userInfo is already existing in DB and verified
-        /*
-        public string GenerateJSONWebToken(User userInfo)
-        {
-            _log4net.Info("Token Is Generated!");
-
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-            var token = new JwtSecurityToken(
-              issuer: _config["Jwt:Issuer"],
-              audience: _config["Jwt:Issuer"],
-              null,
-              expires: DateTime.Now.AddMinutes(30),
-              signingCredentials: credentials);
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
-        }
-        */
+     
 
         public string GenerateJSONWebToken(User userInfo) {
             _log4net.Info("Token Is Generated!");
@@ -70,26 +52,6 @@ namespace AuthorizationAPI.Repository
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /// <summary>
-        /// Finding User with matching credentials
-        /// </summary>
-        /// <param name="login"></param>
-        /// <returns></returns>
-
         public bool AuthenticateUser(User login)
         {
             _log4net.Info("Validating the User!");
@@ -102,3 +64,25 @@ namespace AuthorizationAPI.Repository
 
     }
 }
+
+
+
+// here the userInfo is already existing in DB and verified
+/*
+public string GenerateJSONWebToken(User userInfo)
+{
+    _log4net.Info("Token Is Generated!");
+
+    var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+    var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+    var token = new JwtSecurityToken(
+      issuer: _config["Jwt:Issuer"],
+      audience: _config["Jwt:Issuer"],
+      null,
+      expires: DateTime.Now.AddMinutes(30),
+      signingCredentials: credentials);
+
+    return new JwtSecurityTokenHandler().WriteToken(token);
+}
+*/
