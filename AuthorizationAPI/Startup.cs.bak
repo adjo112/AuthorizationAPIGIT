@@ -34,22 +34,7 @@ namespace AuthorizationAPI
         public void ConfigureServices(IServiceCollection services)
         {
 
-             services.AddCors(options =>
-            {
-                options.AddPolicy("AllowAll",
-                    builder =>
-                    {
-                        builder
-                        .AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader();
-                       
-                    });
-            });
-			
-			
-			
-			services.AddControllers();
+            services.AddControllers();
 
             services.AddDbContext<UserContext>(options =>
             {
@@ -107,8 +92,6 @@ namespace AuthorizationAPI
             app.UseAuthentication();
 
             app.UseAuthorization();
-
-			 app.UseCors("AllowAll");
 
             app.UseEndpoints(endpoints =>
             {

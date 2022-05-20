@@ -45,6 +45,10 @@ namespace AuthorizationAPI
                     webBuilder.UseStartup<Startup>();
                 });
 
+        "ConnectionStrings": {
+    "conString": "Server=DESKTOP-NPNKLPC;Database=TestAuth;Trusted_Connection=True;"
+  }
+
         */
     }
 }
