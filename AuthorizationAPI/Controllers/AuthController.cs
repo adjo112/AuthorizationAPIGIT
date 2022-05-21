@@ -62,6 +62,14 @@ namespace AuthorizationAPI.Controllers
             return response;
         }
 
+        [HttpPost]
+        [Route("[action]")]
+        public IActionResult Register([FromBody] User cred) {
+           
+            _context.Users.Add(cred);
+            _context.SaveChanges();
+            return Ok();
+        }
 
 
     }
