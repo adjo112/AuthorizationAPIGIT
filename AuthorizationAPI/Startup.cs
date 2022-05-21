@@ -107,18 +107,21 @@ namespace AuthorizationAPI
 
             loggerFactory.AddLog4Net();
 
+            app.UseCors("AllowAll");
+
             app.UseHttpsRedirection();
 
-            app.UseCors("AllowAll");
+          
             app.UseRouting();
 
             app.UseAuthentication();
 
             app.UseAuthorization();
 
-          //   app.UseCors("AllowAll");
+            //   app.UseCors("AllowAll");
 
-          //  app.UseCors("authcors");
+            //  app.UseCors("authcors");
+           // app.UseCors("AllowAll");
 
             app.UseEndpoints(endpoints =>
             {
